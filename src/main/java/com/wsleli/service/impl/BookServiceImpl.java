@@ -1,13 +1,19 @@
 package com.wsleli.service.impl;
 
-import com.wsleli.dao.impl.BookDaoImpl;
+import com.wsleli.dao.BookDao;
 import com.wsleli.service.BookService;
 
 public class BookServiceImpl implements BookService {
-    private BookDaoImpl bookDao = new BookDaoImpl();
+    // 5.删除业务层中使用的new的方式创建的dao对象
+    private BookDao bookDao;
 
     public void save() {
         System.out.println("book service save...");
         bookDao.save();
+    }
+
+    // 6.提供对应的set方法
+    public void setBookDao(BookDao bookDao) {
+        this.bookDao = bookDao;
     }
 }
