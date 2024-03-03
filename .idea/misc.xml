@@ -9,6 +9,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/Bean_Lfie/pom.xml" />
         <option value="$PROJECT_DIR$/Spring_Framework_two/pom.xml" />
       </set>
     </option>

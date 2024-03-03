@@ -9,5 +9,9 @@
         <module name="Spring_Framework" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Bean_Lfie" target="1.8" />
+      <module name="Bean_Life" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
