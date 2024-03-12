@@ -16,6 +16,6 @@ public class App_Spring {
 
         BookDao bookDao = ctx.getBean(BookDao.class);
 
-        bookDao.delete();
+        bookDao.update();
     }
 }
