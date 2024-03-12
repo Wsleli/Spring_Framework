@@ -1,8 +1,7 @@
 package com.wsleli.text;
 
 import com.wsleli.config.SpringConfig;
-import com.wsleli.domin.Account;
-import com.wsleli.service.AccountService;
+import com.wsleli.dao.BookDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,10 +14,8 @@ public class App_Spring {
     public static void main(String[] args) {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
 
+        BookDao bookDao = ctx.getBean(BookDao.class);
 
-        AccountService accountService = ctx.getBean(AccountService.class);
-
-        Account ac = accountService.findById(2);
-        System.out.println(ac);
+        bookDao.delete();
     }
 }
