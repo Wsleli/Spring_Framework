@@ -16,6 +16,7 @@ public class App_Spring {
 
         BookDao bookDao = ctx.getBean(BookDao.class);
 
-        bookDao.update();
+        int num = bookDao.select();
+        System.out.println(num);
     }
 }

@@ -6,7 +6,8 @@ package com.wsleli.dao;
  * @Date: 2024/03/12 10:14
  */
 public interface BookDao {
-    public void save();
     public void update();
+
+    public int select();
 }
 
