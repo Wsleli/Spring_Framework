@@ -1,8 +1,6 @@
 package com.wsleli.config;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.*;
 
 /**
  * @Author: Wsleli Wiliams
@@ -11,6 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  */
 @Configuration
 @ComponentScan("com.wsleli")
-@EnableAspectJAutoProxy
+@PropertySource("classpath:jdbc.properties")
+@Import({JdbcConfig.class,MybatisConfig.class})
 public class SpringConfig {
 }
