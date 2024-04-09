@@ -1,7 +1,7 @@
 package com.wsleli;
 
 import com.wsleli.config.SpringConfig;
-import com.wsleli.dao.BookDao;
+import com.wsleli.service.ResourcesService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -14,8 +14,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class App {
     public static void main(String[] args) {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-        BookDao bookDao = ctx.getBean(BookDao.class);
-        String name = bookDao.findName(100,"wsleli");
-        System.out.println(name);
+        ResourcesService resourcesService = ctx.getBean(ResourcesService.class);
+        boolean flag = resourcesService.openURL("http://pan.baidu.com/haha", "root ");
+        System.out.println(flag);
     }
 }

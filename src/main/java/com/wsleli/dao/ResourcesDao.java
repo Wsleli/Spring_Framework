@@ -6,6 +6,6 @@ package com.wsleli.dao;
  * @Author: Wsleli Wiliams
  * @Date: 2024/04/09 8:02
  */
-public interface BookDao {
-    public String findName(int id, String password);
+public interface ResourcesDao {
+    boolean readResources(String url, String password);
 }
