@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springmvc_01_quickstart" />
+        <module name="Spring_Framework" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Bean_Lfie" target="1.8" />
       <module name="Bean_Life" target="1.5" />
-      <module name="Spring_Framework" target="1.5" />
+      <module name="springmvc_01_quickstart" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
