@@ -13,19 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-    // 设置当前操作访问路径
-    @RequestMapping("/save")
-    // 设置当前操作返回值类型
+    @RequestMapping("/commonParam")
     @ResponseBody
-    public String save(){
-        System.out.println("user save ...");
-        return "{'module':'user save'}";
-    }
-
-    @RequestMapping("/delete")
-    @ResponseBody
-    public String delete(){
-        System.out.println("user delete ...");
-        return "{'module':'user delete'}";
+    public String commonParam(String name,int age){
+        System.out.println("普通参数传递 name ==> "+name);
+        System.out.println("普通参数传递 age ==> "+age);
+        return "{'module':'commonParam'}";
     }
 }

@@ -1,6 +1,9 @@
 package com.wsleli.config;
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 /**
  * @Description: 功能描述
@@ -24,6 +27,14 @@ public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatc
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    // 乱码处理
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("UTF-8");
+        return new Filter[]{filter};
     }
 }
 
