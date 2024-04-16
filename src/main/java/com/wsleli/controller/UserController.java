@@ -11,13 +11,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Date: 2024/04/11 10:31
  */
 @Controller
+@RequestMapping("/user")
 public class UserController {
     // 设置当前操作访问路径
     @RequestMapping("/save")
     // 设置当前操作返回值类型
     @ResponseBody
-    public String save() {
+    public String save(){
         System.out.println("user save ...");
-        return "{'module':'springmvc'}";
+        return "{'module':'user save'}";
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public String delete(){
+        System.out.println("user delete ...");
+        return "{'module':'user delete'}";
     }
 }
