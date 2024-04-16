@@ -9,6 +9,15 @@ package com.wsleli.domain;
 public class User {
     private String name;
     private int age;
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public String getName() {
         return name;
@@ -31,6 +40,7 @@ public class User {
         return "User{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", address=" + address +
                 '}';
     }
 }
