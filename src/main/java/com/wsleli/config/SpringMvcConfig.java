@@ -2,6 +2,7 @@ package com.wsleli.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * @Description: 功能描述
@@ -12,5 +13,6 @@ import org.springframework.context.annotation.Configuration;
 // 创建springmvc的配置文件，加载controller对应的bean
 @Configuration
 @ComponentScan("com.wsleli.controller")
+@EnableWebMvc
 public class SpringMvcConfig {
 }
