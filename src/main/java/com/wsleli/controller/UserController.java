@@ -1,15 +1,11 @@
 package com.wsleli.controller;
 
 import com.wsleli.domain.User;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Arrays;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,80 +15,50 @@ import java.util.List;
  * @Date: 2024/04/11 10:31
  */
 @Controller
-@RequestMapping("/user")
 public class UserController {
-    @RequestMapping("/commonParamDifferentName")
-    @ResponseBody
-    public String commonParamDifferentName(@RequestParam("name") String userName, int age) {
-        System.out.println("普通参数传递 userName ==> " + userName);
-        System.out.println("普通参数传递 age ==> " + age);
-        return "{'module':'common param different name'}";
+    @RequestMapping("/toJumpPage")
+    // 注意
+    // 1.此处不能添加@ResponseBody,如果加了该注入，会直接将page.jsp当字符串返回前端
+    // 2.方法需要返回String
+    public String toJumpPage() {
+        System.out.println("跳转页面");
+        return "page.jsp";
     }
 
-    // POJO参数：请求参数与形参对象中的属性对应即可完成参数传递
-    @RequestMapping("/pojoParam")
+    @RequestMapping("/toText")
+    // 注意此处该注解就不能省略，如果省略了,会把response text当前页面名称去查找，如果没有回报404错误
     @ResponseBody
-    public String pojoParam(User user) {
-        System.out.println("pojo参数传递 user ==> " + user);
-        return "{'module':'pojo param'}";
+    public String toText() {
+        System.out.println("返回纯文本数据");
+        return "response text";
     }
 
-    // 嵌套P0J0参数
-    @RequestMapping("/pojoContainPojoParam")
+    @RequestMapping("/toJsonPOJO")
     @ResponseBody
-    public String pojocontainPojoParam(User user) {
-        System.out.println("pojo嵌套pojo参数传递 user ==>" + user);
-        return "{'module':'pojo contain pojo param'}";
+    public User toJsonPOJO() {
+        System.out.println("返回json对象数据");
+        User user = new User();
+        user.setName("wsleli");
+        user.setAge(15);
+        return user;
     }
 
-    // 数组参数
-    @RequestMapping("/arrayParam")
+    @RequestMapping("/toJsonList")
     @ResponseBody
-    public String arrayParam(String[] likes) {
-        System.out.println("数组参数传 likes ==>" + Arrays.toString(likes));
-        return "{'module':'array param'}";
-    }
+    public List<User> toJsonList() {
+        System.out.println("返回json集合数据");
+        User user1 = new User();
+        user1.setName("传智播客");
+        user1.setAge(15);
 
-    // 集合参数
-    @RequestMapping("/listParam")
-    @ResponseBody
-    public String listParam(@RequestParam List<String> likes) {
-        System.out.println("集合参数传递 likes ==>" + likes);
-        return "{'module':'list param'}";
-    }
+        User user2 = new User();
+        user2.setName("黑马程序员");
+        user2.setAge(12);
 
-    // 集合参数:json格式
-    @RequestMapping("/listParamForJson")
-    @ResponseBody
-    public String listParamForJson(@RequestBody List<String> likes) {
-        System.out.println("list common(json)参数传递 list ==>" + likes);
-        return "{'module':'list common for json param'}";
-    }
+        List<User> userList = new ArrayList<User>();
+        userList.add(user1);
+        userList.add(user2);
 
-    // P0J0参数:json格式
-    @RequestMapping("/pojoParamForJson")
-    @ResponseBody
-    public String pojoParamForJson(@RequestBody User user) {
-        System.out.println("pojo(json)参数传递 user ==>" + user);
-        return "{'module':'pojo for json param'}";
-    }
-
-    // 集合参数:json格式
-    @RequestMapping("/listPojoParamForJson")
-    @ResponseBody
-    public String listPojoParamForJson(@RequestBody List<User> list) {
-        System.out.println("list pojo(json)参数传递 list ==>" + list);
-        return "{'module':'list pojo for json param'}";
-    }
-
-    @RequestMapping("/dataParam")
-    @ResponseBody
-    public String dataParam(Date date,
-                            @DateTimeFormat(pattern = "yyyy-MM-dd") Date date1,
-                            @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss") Date date2) {
-        System.out.println("参数传递 date ==> " + date);
-        System.out.println("参数传递 date1(yyyy-MM-dd) ==> " + date1);
-        System.out.println("参数传递 date2(yyyy/MM/dd HH:mm:ss) ==> " + date2);
-        return "{'module':'data param'}";
+        return userList;
     }
 }
