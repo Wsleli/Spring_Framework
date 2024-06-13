@@ -4,11 +4,11 @@ package com.wsleli.domain;
  * @Description: 功能描述
  * @Version: 1.0
  * @Author: Wsleli Wiliams
- * @Date: 2024/04/16 8:55
+ * @Date: 2024/06/13 18:21
  */
-public class User {
+public class Book {
     private String name;
-    private int age;
+    private double price;
 
     public String getName() {
         return name;
@@ -18,19 +18,19 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public double getPrice() {
+        return price;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Book{" +
                 "name='" + name + '\'' +
-                ", age=" + age +
+                ", price=" + price +
                 '}';
     }
 }

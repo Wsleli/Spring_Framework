@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 // 创建springmvc的配置文件，加载controller对应的bean
 @Configuration
 @ComponentScan("com.wsleli.controller")
+// 开启json数据类型自动转换
 @EnableWebMvc
 public class SpringMvcConfig {
 }
