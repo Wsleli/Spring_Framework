@@ -9,37 +9,34 @@ import org.springframework.web.bind.annotation.*;
  * @Author: Wsleli Wiliams
  * @Date: 2024/06/13 18:22
  */
+@RestController
+@RequestMapping("/books")
 public class BookController {
-    @RequestMapping(value = "/books", method = RequestMethod.POST)
-    @ResponseBody
+    @PostMapping
     public String save(@RequestBody Book book) {
         System.out.println("book save..." + book);
         return "{'module':'book save'}";
     }
 
-    @RequestMapping(value = "/books/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
+    @DeleteMapping("/{id}")
     public String delete(@PathVariable Integer id) {
         System.out.println("book delete..." + id);
         return "{'module':'book delete'}";
     }
 
-    @RequestMapping(value = "/books", method = RequestMethod.PUT)
-    @ResponseBody
+    @PutMapping
     public String update(@RequestBody Book book) {
         System.out.println("book update..." + book);
         return "{'module':'book update'}";
     }
 
-    @RequestMapping(value = "/books/{id}", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping("/{id}")
     public String getById(@PathVariable Integer id) {
         System.out.println("book getById..." + id);
         return "{'module':'book getById'}";
     }
 
-    @RequestMapping(value = "/books", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping
     public String getAll() {
         System.out.println("book getAll...");
         return "{'module':'book getAll'}";
