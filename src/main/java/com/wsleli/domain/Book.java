@@ -4,7 +4,7 @@ package com.wsleli.domain;
  * @Description: 功能描述
  * @Version: 1.0
  * @Author: Wsleli Wiliams
- * @Date: 2024/06/13 18:21
+ * @Date: 2024/06/14 15:56
  */
 public class Book {
     private Integer id;
@@ -50,7 +50,7 @@ public class Book {
                 "id=" + id +
                 ", type='" + type + '\'' +
                 ", name='" + name + '\'' +
-                ", description=" + description +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

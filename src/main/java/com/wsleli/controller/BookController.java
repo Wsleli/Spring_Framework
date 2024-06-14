@@ -1,49 +1,47 @@
 package com.wsleli.controller;
 
 import com.wsleli.domain.Book;
+import com.wsleli.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @Description: 功能描述
  * @Version: 1.0
  * @Author: Wsleli Wiliams
- * @Date: 2024/06/13 18:22
+ * @Date: 2024/06/14 16:16
  */
 @RestController
 @RequestMapping("/books")
 public class BookController {
+
+    @Autowired
+    private BookService bookService;
+
     @PostMapping
-    public String save(@RequestBody Book book) {
-        System.out.println("book save ==> " + book);
-        return "{'module':'book save success'}";
+    public boolean save(@RequestBody Book book) {
+        return bookService.save(book);
+    }
+
+    @PutMapping
+    public boolean update(@RequestBody Book book) {
+        return bookService.update(book);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable Integer id) {
+        return bookService.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public Book getById(@PathVariable Integer id) {
+        return bookService.getById(id);
     }
 
     @GetMapping
     public List<Book> getAll() {
-        System.out.println("book getAll is running ...");
-        List<Book> bookList = new ArrayList<Book>();
-
-        Book book1 = new Book();
-        book1.setType("计算机");
-        book1.setName("SpringMVC入门教程");
-        book1.setDescription("小试牛刀");
-        bookList.add(book1);
-
-        Book book2 = new Book();
-        book2.setType("计算机");
-        book2.setName("SpringMVC实战教程");
-        book2.setDescription("一代宗师");
-        bookList.add(book2);
-
-        Book book3 = new Book();
-        book3.setType("计算机丛书");
-        book3.setName("SpringMVC实战教程进阶");
-        book3.setDescription("一代宗师呕心创作");
-        bookList.add(book3);
-
-        return bookList;
+        return bookService.getAll();
     }
 }
