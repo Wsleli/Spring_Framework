@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @Date: 2024/06/13 23:09
  */
 @Configuration
-@ComponentScan("com.wsleli.controller")
+@ComponentScan({"com.wsleli.controller", "com.wsleli.config"})
 @EnableWebMvc
 public class SpringMvcConfig {
 }
