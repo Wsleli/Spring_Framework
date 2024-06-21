@@ -9,25 +9,22 @@ import javax.servlet.Filter;
  * @Description: 功能描述
  * @Version: 1.0
  * @Author: Wsleli Wiliams
- * @Date: 2024/06/13 23:07
+ * @Date: 2024/06/21 20:34
  */
-public class ServletConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
-    // 加载Spring配置类
+public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{SpringConfig.class};
+        return new Class[0];
     }
 
-    // 加载SpringMVC配置类
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{SpringMvcConfig.class};
     }
 
-    // 设置SpringMVC请求地址拦截规则
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
 
-    // 设置post请求中文乱码过滤器
+    // 乱码处理
     @Override
     protected Filter[] getServletFilters() {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();

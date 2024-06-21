@@ -7,26 +7,8 @@ package com.wsleli.domain;
  * @Date: 2024/06/14 15:56
  */
 public class Book {
-    private Integer id;
-    private String type;
     private String name;
-    private String description;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
+    private double price;
 
     public String getName() {
         return name;
@@ -36,21 +18,19 @@ public class Book {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public double getPrice() {
+        return price;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                "书名='" + name + '\'' +
+                ", 价格=" + price +
                 '}';
     }
 }
