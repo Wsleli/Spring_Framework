@@ -54,4 +54,21 @@
             </plugin>
         </plugins>
     </build>
+
+    <!--发布配置管理-->
+    <!--配置当前工程保存在私服中的具体位置-->
+    <distributionManagement>
+        <repository>
+            <!--和maven/settings.xml中server中的id一致，表示使用该id对应的用户名和密码-->
+            <id>wsleli-release</id>
+            <!--release版本上传仓库的具体地址-->
+            <url>http://localhost:8081/repository/wsleli-release/</url>
+        </repository>
+        <snapshotRepository>
+            <!--和maven/settings.xml中server中的id一致，表示使用该id对应的用户名和密码-->
+            <id>wsleli-snapshot</id>
+            <!--snapshot版本上传仓库的具体地址-->
+            <url>http://localhost:8081/repository/wsleli-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
